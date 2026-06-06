@@ -9,5 +9,26 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const root = document.getElementById('root');
+          const footer = document.querySelector('footer');
+          const cta = document.querySelector('section:has(form)');
+          console.log('--- LAYOUT DEBUG START ---');
+          if (cta && footer) {
+            const ctaRect = cta.getBoundingClientRect();
+            const footerRect = footer.getBoundingClientRect();
+            console.log(JSON.stringify({
+              cta: { top: ctaRect.top + window.scrollY, bottom: ctaRect.bottom + window.scrollY, height: ctaRect.height },
+              footer: { top: footerRect.top + window.scrollY, bottom: footerRect.bottom + window.scrollY, height: footerRect.height }
+            }));
+          } else {
+            console.log('CTA or Footer not found');
+          }
+          console.log('--- LAYOUT DEBUG END ---');
+        }, 1500);
+      });
+    </script>
   </body>
 </html>

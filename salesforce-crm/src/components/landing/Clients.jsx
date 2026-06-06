@@ -10,26 +10,40 @@ const clients = [
 
 export default function Clients() {
   return (
-    <section className="bg-white py-10">
+    <section style={{ backgroundColor: "#ffffff", paddingTop: "100px", paddingBottom: "100px" }}>
       <div style={{ width: "min(calc(100% - 40px), 1216px)", marginInline: "auto" }}>
-        <div className="mb-8 flex justify-center gap-1">
-          <span className="h-2 w-2 rounded-full bg-blue-600" />
-          <span className="h-2 w-2 rounded-full bg-slate-300" />
-          <span className="h-2 w-2 rounded-full bg-slate-300" />
-          <span className="h-2 w-2 rounded-full bg-slate-300" />
+        <div style={{ display: "flex", justifyContent: "center", gap: "6px", marginBottom: "28px" }}>
+          <span style={{ height: "8px", width: "8px", borderRadius: "50%", backgroundColor: "#2563eb", display: "inline-block" }} />
+          <span style={{ height: "8px", width: "8px", borderRadius: "50%", backgroundColor: "#cbd5e1", display: "inline-block" }} />
+          <span style={{ height: "8px", width: "8px", borderRadius: "50%", backgroundColor: "#cbd5e1", display: "inline-block" }} />
+          <span style={{ height: "8px", width: "8px", borderRadius: "50%", backgroundColor: "#cbd5e1", display: "inline-block" }} />
         </div>
 
-        <h2 className="mb-8 text-center text-2xl font-black text-slate-950 sm:text-3xl">
+        <h2 style={{ textAlign: "center", fontSize: "2rem", fontWeight: 900, color: "#0f172a", marginBottom: "40px" }}>
           Klien Kami
         </h2>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-7">
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+          gap: "20px",
+        }}>
           {clients.map((client) => (
             <div
               key={client}
-              className="flex h-16 items-center justify-center rounded-lg border border-slate-200 bg-white px-3 shadow-sm"
+              style={{
+                height: "160px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: "12px",
+                border: "1px solid #e2e8f0",
+                backgroundColor: "#ffffff",
+                padding: "16px",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+              }}
             >
-              <span className="text-center text-sm font-black text-slate-500">
+              <span style={{ textAlign: "center", fontSize: "15px", fontWeight: 800, color: "#475569" }}>
                 {client}
               </span>
             </div>

@@ -4,62 +4,110 @@ const badges = ["Full Access Fitur", "Mudah Digunakan", "Aman & Terpercaya"];
 
 export default function CTASection() {
   return (
-    <section className="bg-white py-8">
-      <div style={{ width: "min(calc(100% - 40px), 1216px)", marginInline: "auto" }}>
-        <div className="relative overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-r from-blue-50 to-white p-6 shadow-lg sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-            <div>
-              <h2 className="text-3xl font-black leading-tight text-blue-950 sm:text-4xl">
-                Coba Gratis 14 Hari Tanpa Kartu Kredit
-              </h2>
-              <p className="mt-4 max-w-xl text-base font-medium leading-7 text-slate-600">
-                Rasakan semua fitur SalesForce secara lengkap selama 14 hari.
-              </p>
+    <section style={{ backgroundColor: "#ffffff" }}>
+      <div style={{
+        background: "linear-gradient(120deg, #eff6ff 0%, #ffffff 100%)",
+        borderTop: "1px solid #dbeafe",
+        borderBottom: "1px solid #dbeafe",
+        paddingTop: "100px",
+        paddingBottom: "100px",
+        paddingLeft: "80px",
+        paddingRight: "80px",
+      }}>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "60px",
+          alignItems: "center",
+        }}>
+          {/* Left: Text */}
+          <div>
+            <h2 style={{ fontSize: "2.8rem", fontWeight: 900, lineHeight: 1.2, color: "#1e3a8a" }}>
+              Coba Gratis 14 Hari Tanpa Kartu Kredit
+            </h2>
+            <p style={{ marginTop: "20px", fontSize: "1.1rem", fontWeight: 500, lineHeight: 1.7, color: "#475569" }}>
+              Rasakan semua fitur SalesForce secara lengkap selama 14 hari.
+            </p>
 
-              <div className="mt-7 grid gap-3 text-sm text-slate-700 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                {badges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-xs font-bold shadow-sm ring-1 ring-blue-100"
-                  >
-                    <FaCheckCircle className="text-blue-600" size={14} />
-                    {badge}
-                  </span>
-                ))}
-              </div>
+            <div style={{ marginTop: "36px", display: "flex", flexDirection: "column", gap: "14px" }}>
+              {badges.map((badge) => (
+                <span
+                  key={badge}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    backgroundColor: "#ffffff",
+                    padding: "14px 20px",
+                    borderRadius: "10px",
+                    fontSize: "14px",
+                    fontWeight: 700,
+                    color: "#1e293b",
+                    boxShadow: "0 1px 6px rgba(0,0,0,0.08)",
+                    border: "1px solid #dbeafe",
+                    width: "fit-content",
+                  }}
+                >
+                  <FaCheckCircle style={{ color: "#2563eb" }} size={16} />
+                  {badge}
+                </span>
+              ))}
             </div>
-
-            <form className="grid gap-3 rounded-lg bg-white/80 p-3 text-slate-900 shadow-sm ring-1 ring-slate-200 sm:grid-cols-2">
-              <input
-                className="rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                placeholder="Nama Lengkap"
-              />
-              <input
-                className="rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                placeholder="Email Perusahaan"
-              />
-              <input
-                className="rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                placeholder="Nomor WhatsApp"
-              />
-              <input
-                className="rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-                placeholder="Nama Perusahaan"
-              />
-              <select
-                className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-500 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100 sm:col-span-2"
-                defaultValue="Jumlah Tim"
-              >
-                <option disabled>Jumlah Tim</option>
-                <option>1-5</option>
-                <option>6-20</option>
-                <option>20+</option>
-              </select>
-              <button className="rounded-lg bg-blue-600 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700 sm:col-span-2">
-                Mulai Trial Gratis
-              </button>
-            </form>
           </div>
+
+          {/* Right: Form */}
+          <form style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "16px",
+            backgroundColor: "rgba(255,255,255,0.9)",
+            padding: "36px",
+            borderRadius: "16px",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
+            border: "1px solid #e2e8f0",
+          }}>
+            <input
+              style={{ borderRadius: "10px", border: "1px solid #e2e8f0", padding: "16px", fontSize: "14px", outline: "none" }}
+              placeholder="Nama Lengkap"
+            />
+            <input
+              style={{ borderRadius: "10px", border: "1px solid #e2e8f0", padding: "16px", fontSize: "14px", outline: "none" }}
+              placeholder="Email Perusahaan"
+            />
+            <input
+              style={{ borderRadius: "10px", border: "1px solid #e2e8f0", padding: "16px", fontSize: "14px", outline: "none" }}
+              placeholder="Nomor WhatsApp"
+            />
+            <input
+              style={{ borderRadius: "10px", border: "1px solid #e2e8f0", padding: "16px", fontSize: "14px", outline: "none" }}
+              placeholder="Nama Perusahaan"
+            />
+            <select
+              style={{ borderRadius: "10px", border: "1px solid #e2e8f0", backgroundColor: "#fff", padding: "16px", fontSize: "14px", color: "#64748b", outline: "none", gridColumn: "1 / -1" }}
+              defaultValue="Jumlah Tim"
+            >
+              <option disabled>Jumlah Tim</option>
+              <option>1-5</option>
+              <option>6-20</option>
+              <option>20+</option>
+            </select>
+            <button
+              style={{
+                borderRadius: "10px",
+                backgroundColor: "#2563eb",
+                padding: "16px",
+                fontSize: "15px",
+                fontWeight: 700,
+                color: "#ffffff",
+                border: "none",
+                cursor: "pointer",
+                boxShadow: "0 6px 20px rgba(37,99,235,0.3)",
+                gridColumn: "1 / -1",
+              }}
+            >
+              Mulai Trial Gratis
+            </button>
+          </form>
         </div>
       </div>
     </section>

@@ -1,3 +1,5 @@
+import { FaCheckCircle } from "react-icons/fa";
+
 const plans = [
   {
     name: "Alfa",
@@ -41,51 +43,91 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="harga" className="bg-white py-12">
-      <div style={{ width: "min(calc(100% - 40px), 1024px)", marginInline: "auto" }}>
-        <div className="mb-10 text-center">
-          <h2 className="text-2xl font-black text-slate-950 sm:text-3xl">
+    <section id="harga" style={{ backgroundColor: "#f8faff", paddingTop: "100px", paddingBottom: "100px" }}>
+      <div style={{ width: "min(calc(100% - 40px), 1200px)", marginInline: "auto" }}>
+        <div style={{ marginBottom: "56px", textAlign: "center" }}>
+          <h2 style={{ fontSize: "2.5rem", fontWeight: 900, color: "#0f172a" }}>
             Paket Berlangganan
           </h2>
+          <p style={{ marginTop: "12px", fontSize: "1rem", color: "#64748b" }}>
+            Pilih paket yang sesuai dengan kebutuhan bisnis Anda
+          </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3 lg:items-center">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "28px", alignItems: "stretch" }}>
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative flex min-h-[25rem] flex-col rounded-xl border bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${plan.popular ? "border-blue-600 ring-2 ring-blue-600 lg:min-h-[28rem]" : "border-slate-200"}`}
+              style={{
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: "20px",
+                border: plan.popular ? "2px solid #2563eb" : "1px solid #e2e8f0",
+                backgroundColor: "#ffffff",
+                padding: "40px",
+                boxShadow: plan.popular
+                  ? "0 8px 40px rgba(37,99,235,0.18)"
+                  : "0 2px 12px rgba(0,0,0,0.06)",
+              }}
             >
               {plan.popular && (
-                <div className="absolute right-5 top-5 inline-flex w-fit rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-black text-white">
+                <span style={{
+                  position: "absolute",
+                  top: "-16px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  whiteSpace: "nowrap",
+                  borderRadius: "999px",
+                  backgroundColor: "#2563eb",
+                  padding: "6px 20px",
+                  fontSize: "12px",
+                  fontWeight: 900,
+                  color: "#ffffff",
+                  boxShadow: "0 2px 8px rgba(37,99,235,0.3)",
+                }}>
                   Paling Populer
-                </div>
+                </span>
               )}
 
-              <h3 className="text-2xl font-black text-blue-700">
+              <h3 style={{ fontSize: "1.6rem", fontWeight: 900, color: plan.popular ? "#2563eb" : "#1e293b" }}>
                 {plan.name}
               </h3>
-              <p className="mt-3 text-sm font-semibold text-slate-600">
+              <p style={{ marginTop: "8px", fontSize: "0.9rem", fontWeight: 500, color: "#64748b" }}>
                 {plan.description}
               </p>
 
-              <div className="mt-6">
-                <p className="text-3xl font-black text-slate-950">
+              <div style={{ marginTop: "28px", borderTop: "1px solid #f1f5f9", paddingTop: "28px" }}>
+                <p style={{ fontSize: "2.5rem", fontWeight: 900, color: "#0f172a" }}>
                   Rp {plan.price}
-                  <span className="text-sm font-bold text-slate-500"> /bulan</span>
+                  <span style={{ fontSize: "1rem", fontWeight: 600, color: "#94a3b8" }}> /bulan</span>
                 </p>
               </div>
 
-              <ul className="mt-6 space-y-3 text-sm font-medium text-slate-600">
+              <ul style={{ marginTop: "28px", flex: 1, display: "flex", flexDirection: "column", gap: "14px" }}>
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    <span className="text-blue-600">✓</span>
+                  <li key={feature} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.9rem", fontWeight: 500, color: "#334155" }}>
+                    <FaCheckCircle style={{ color: "#3b82f6", flexShrink: 0 }} size={16} />
                     {feature}
                   </li>
                 ))}
               </ul>
 
               <button
-                className={`mt-auto w-full rounded-lg border border-blue-600 py-3 text-sm font-black transition ${plan.popular ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25 hover:bg-blue-700" : "bg-white text-blue-700 hover:bg-blue-50"}`}
+                style={{
+                  marginTop: "36px",
+                  width: "100%",
+                  borderRadius: "12px",
+                  padding: "14px 0",
+                  fontSize: "0.9rem",
+                  fontWeight: 900,
+                  cursor: "pointer",
+                  border: plan.popular ? "none" : "1.5px solid #2563eb",
+                  backgroundColor: plan.popular ? "#2563eb" : "#ffffff",
+                  color: plan.popular ? "#ffffff" : "#2563eb",
+                  boxShadow: plan.popular ? "0 6px 20px rgba(37,99,235,0.3)" : "none",
+                  transition: "all 0.2s",
+                }}
               >
                 Mulai Sekarang
               </button>
@@ -93,8 +135,8 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="mt-5 text-center text-xs font-medium text-slate-500">
-          * Harga belum termasuk PPN
+        <p style={{ marginTop: "28px", textAlign: "center", fontSize: "12px", fontWeight: 500, color: "#94a3b8" }}>
+          * Harga belum termasuk PPN ①
         </p>
       </div>
     </section>
